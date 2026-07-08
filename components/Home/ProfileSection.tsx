@@ -3,58 +3,70 @@ import React from 'react';
 
 const ProfileSection = () => {
     return (
-        <div className="text-gray-300 flex items-center justify-center px-6 mb-12 mt-12">
-            <div className="max-w-4xl flex flex-col md:flex-row items-start gap-12">
-                {/* Text Section */}
-                <div className="flex-1 text-lg leading-relaxed text-gray-400">
-                    <p className="">
-                        I’m a passionate developer moved by <span className="font-bold text-white">Innovation</span> and <span className="font-bold text-white">Domination</span>. I strive to build software that not only functions flawlessly but also commands the digital landscape.
-                    </p>
-                    <p className="mt-6">
-                        Currently, I am dedicated to engineering solutions that push the boundaries of what is possible, turning complex problems into elegant, dominant systems.
-                    </p>
-                    <p className="mt-6">
-                        Driven by a relentless pursuit of excellence, I aim to create technology that leads rather than follows, setting new standards in every project I undertake.
-                    </p>
-                    <p className="mt-6">
-                        My work is a reflection of this ethos—where code meets conquest.
-                    </p>
-
-                    <div className="mt-8 pt-8 border-t border-white/5">
-                        <p className="italic text-gray-500">
-                            Beyond the screen, I find balance in basketball, reading, and writing. Above all, I love Jesus, and my faith is the foundation of who I am and everything I do.
+        <section id="about" className="scroll-mt-16 py-28 md:py-36">
+            <div className="max-w-6xl mx-auto px-6">
+                <div className="grid grid-cols-1 md:grid-cols-12 gap-14 md:gap-16">
+                    {/* Editorial copy */}
+                    <div className="md:col-span-7">
+                        <p className="eyebrow text-gge-emerald mb-5">About</p>
+                        <h2 className="text-3xl md:text-5xl font-light tracking-tight text-gge-ink leading-[1.1] mb-10">
+                            Who we are
+                        </h2>
+                        <p className="text-xl md:text-2xl font-light leading-relaxed text-gge-ink max-w-xl">
+                            GGE is a technology company, Kingdom first —
+                            building the infrastructure that helps businesses
+                            and communities operate, connect, and thrive.
                         </p>
-                    </div>
-
-
-
-                    <div className="mt-16">
-                        <h3 className="text-xs font-bold tracking-[0.2em] text-white uppercase mb-8 border-b border-white/10 pb-4 inline-block"></h3>
-                        <div className="grid grid-cols-1 gap-6">
-                            {/* Project items will go here */}
+                        <div className="mt-8 space-y-6 text-lg leading-relaxed text-gge-muted max-w-xl">
+                            <p>
+                                The current proof is the Total Retail Engine:
+                                Royal Inventory, which runs inventory and
+                                sales for retail businesses, and Gendal, the
+                                marketplace built on top of it for shoppers —
+                                starting in Gambian retail.
+                            </p>
+                            <p>
+                                The company is led by{' '}
+                                <span className="text-gge-ink font-medium">Daniel Ofili Achigbue</span>,
+                                a software engineer whose background spans
+                                fintech and banking — from building mobile
+                                banking at Guaranty Trust Bank to delivering
+                                fintech platforms like Kashma and Bonfo.
+                            </p>
+                            <p>
+                                We build systems meant to be trusted with real
+                                money and real stock: software that keeps an
+                                honest record, works for the businesses that
+                                run on it, and holds up in daily use.
+                            </p>
                         </div>
                     </div>
-                </div>
-                {/* Divider */}
-                <div className="hidden md:block w-px bg-gradient-to-b from-transparent via-gray-700 to-transparent h-[500px]"></div>
-                {/* Image Section */}
-                <div className="flex-1">
-                    <div className="relative w-80 h-96 flex justify-center items-center ml-10">
-                        <Image
-                            src="/danTheMan.jpeg"
-                            alt="Tobias van Schneider"
-                            layout="fill"
-                            objectFit="cover"
-                            className="rounded-2xl grayscale hover:grayscale-0 transition-all duration-700 shadow-2xl"
-                        />
-                    </div>
-                    <div className="text-left ml-10 text-xl">
-                        <p className="text-white mt-6 font-bold tracking-tight">Daniel Ofili Achigbue</p>
-                        <p className="text-emerald-500 text-sm font-bold tracking-widest uppercase mt-1">Software Developer</p>
+
+                    {/* Founder portrait */}
+                    <div className="md:col-span-5 md:pt-24">
+                        <figure>
+                            <div className="relative aspect-[4/5] overflow-hidden rounded-sm">
+                                <Image
+                                    src="/danTheMan.jpeg"
+                                    alt="Daniel Ofili Achigbue at his desk"
+                                    fill
+                                    className="object-cover grayscale hover:grayscale-0 transition-all duration-700"
+                                    sizes="(max-width: 768px) 100vw, 40vw"
+                                />
+                            </div>
+                            <figcaption className="mt-4 flex items-baseline justify-between gap-4 border-t border-gge-line pt-4">
+                                <span className="text-gge-ink font-medium">
+                                    Daniel Ofili Achigbue
+                                </span>
+                                <span className="font-mono text-xs uppercase tracking-widest text-gge-muted">
+                                    Founder
+                                </span>
+                            </figcaption>
+                        </figure>
                     </div>
                 </div>
             </div>
-        </div>
+        </section>
     );
 };
 

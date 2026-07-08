@@ -1,8 +1,9 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Geist, Geist_Mono, Fraunces } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/Home/Navbar";
 import Footer from "@/components/Footer";
+import IntroOverlay from "@/components/Intro/IntroOverlay";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -14,9 +15,17 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
+const fraunces = Fraunces({
+  variable: "--font-fraunces",
+  subsets: ["latin"],
+  style: ["italic"],
+  axes: ["SOFT", "WONK", "opsz"],
+});
+
 export const metadata: Metadata = {
-  title: "GGE - Portfolio",
-  description: "Portfolio of GGE - Showcasing creative work and projects.",
+  title: "GGE — A technology company, Kingdom first",
+  description:
+    "GGE builds the infrastructure that helps businesses and communities operate, connect, and thrive. Today that's the Total Retail Engine — Royal Inventory and Gendal, starting in Gambian retail.",
 };
 
 export default function RootLayout({
@@ -27,8 +36,9 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased bg-black min-h-screen`}
+        className={`${geistSans.variable} ${geistMono.variable} ${fraunces.variable} antialiased bg-gge-canvas text-gge-ink min-h-screen`}
       >
+        <IntroOverlay />
         <Navbar />
         {children}
         <Footer />

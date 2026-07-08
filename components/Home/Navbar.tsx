@@ -1,136 +1,278 @@
 'use client';
-import * as React from "react"
-import { useState } from 'react';
+import * as React from "react";
+import { useEffect, useState } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
-import { cn } from "@/lib/utils"
-import { Menu, X, Download } from "lucide-react";
-import { motion, AnimatePresence } from "framer-motion";
+import { usePathname } from 'next/navigation';
+import { Menu, X, ChevronDown } from "lucide-react";
+import { AnimatePresence, motion } from "framer-motion";
+import { cn } from "@/lib/utils";
+
+type NavItem = { label: string; description: string; href: string; brandDot?: boolean };
+type NavGroup = { label: string; items: NavItem[] };
+
+const navGroups: NavGroup[] = [
+    {
+        label: "What We Do",
+        items: [
+            {
+                label: "Royal Marketplace",
+                description: "The Total Retail Engine — our two products",
+                href: "/royal-marketplace",
+                brandDot: true,
+            },
+            {
+                label: "How we build",
+                description: "The capabilities behind the products",
+                href: "/#capabilities",
+            },
+        ],
+    },
+    {
+        label: "About",
+        items: [
+            {
+                label: "Who we are",
+                description: "The company and its founder",
+                href: "/#about",
+            },
+            {
+                label: "Experience",
+                description: "The track record behind GGE",
+                href: "/#experience",
+            },
+        ],
+    },
+];
+
+/* Two-tone dot: Royal Inventory purple meets Gendal gold */
+const BrandDot = () => (
+    <span
+        className="w-2.5 h-2.5 rounded-full shrink-0 mt-1.5"
+        style={{ background: "linear-gradient(90deg, #3C1684 50%, #C9962E 50%)" }}
+    />
+);
 
 const Navbar = () => {
     const [isOpen, setIsOpen] = useState(false);
+    const [scrolled, setScrolled] = useState(false);
+    const [openMenu, setOpenMenu] = useState<string | null>(null);
+    const pathname = usePathname();
 
-    const navLinks = [
-        { href: "/#profile", label: "About" },
-        { href: "/#experience", label: "Experience" },
-        { href: "/#projects", label: "Projects" },
-        { href: "/gallery", label: "Gallery" },
-        { href: "/Curriculum_Vitae_Daniel_Achigbue.pdf", label: "Resume", isDownload: true },
-    ];
+    useEffect(() => {
+        const onScroll = () => setScrolled(window.scrollY > 24);
+        onScroll();
+        window.addEventListener("scroll", onScroll, { passive: true });
+        return () => window.removeEventListener("scroll", onScroll);
+    }, []);
+
+    // Close menus on navigation and on Escape
+    useEffect(() => {
+        setOpenMenu(null);
+        setIsOpen(false);
+    }, [pathname]);
+    useEffect(() => {
+        const onKey = (e: KeyboardEvent) => {
+            if (e.key === "Escape") setOpenMenu(null);
+        };
+        window.addEventListener("keydown", onKey);
+        return () => window.removeEventListener("keydown", onKey);
+    }, []);
+
+    // Transparent only while resting on a dark page hero; solid paper elsewhere.
+    // An open dropdown or mobile menu always gets the solid treatment.
+    const darkHero = pathname === "/" || pathname === "/royal-marketplace";
+    const solid = scrolled || !darkHero || openMenu !== null || isOpen;
 
     return (
         <>
-            <motion.nav
-                initial={{ y: -100 }}
-                animate={{ y: 0 }}
-                transition={{ type: "spring", stiffness: 100, damping: 20 }}
-                className="fixed top-4 left-0 right-0 z-[100] flex justify-center px-4"
+            <header
+                className={cn(
+                    "fixed top-0 inset-x-0 z-[100] transition-colors duration-300",
+                    solid
+                        ? "bg-gge-canvas/90 backdrop-blur-md border-b border-gge-line"
+                        : "bg-transparent border-b border-transparent"
+                )}
             >
-                <div
-                    className="w-full max-w-5xl bg-neutral-900/90 backdrop-blur-md border border-white/10 rounded-full px-6 py-3 flex items-center justify-between shadow-2xl relative"
-                >
-
-                    {/* Logo Section */}
-                    <Link href="/" className="flex items-center gap-3 group">
-                        <div className="relative w-10 h-10 rounded-full bg-white/10 p-1.5 border border-white/10 overflow-hidden group-hover:bg-white/20 transition-colors">
+                <div className="max-w-6xl mx-auto px-6 h-16 md:h-[4.5rem] flex items-center justify-between">
+                    {/* Mark + name */}
+                    <Link href="/" className="flex items-center gap-3">
+                        <span className="relative w-9 h-9 rounded-full bg-white shadow-sm ring-1 ring-black/5 overflow-hidden shrink-0">
                             <Image
                                 src="/eagle-logo.png"
-                                alt="GGE Logo"
+                                alt="GGE"
                                 fill
-                                className="object-contain p-1"
+                                className="object-contain p-1.5"
                             />
-                        </div>
-                        <span className="text-white font-bold tracking-wider text-sm hidden sm:block">GGE</span>
+                        </span>
+                        <span
+                            className={cn(
+                                "text-sm font-semibold tracking-[0.08em] transition-colors",
+                                solid ? "text-gge-ink" : "text-white"
+                            )}
+                        >
+                            GGE Enterprise
+                        </span>
                     </Link>
 
-                    {/* Desktop Navigation */}
-                    <div className="hidden md:flex items-center gap-1">
-                        {navLinks.map((link) => (
-                            <Link
-                                key={link.label}
-                                href={link.href}
-                                target={link.isDownload ? "_blank" : undefined}
-                                rel={link.isDownload ? "noopener noreferrer" : undefined}
-                                className={cn(
-                                    "px-4 py-2 text-sm font-medium text-gray-400 hover:text-white hover:bg-white/5 rounded-full transition-all flex items-center gap-2",
-                                    link.isDownload && "text-emerald-400 hover:text-emerald-300"
-                                )}
-                            >
-                                {link.label}
-                                {link.isDownload && <Download size={14} />}
-                            </Link>
-                        ))}
-                    </div>
+                    {/* Desktop navigation */}
+                    <nav className="hidden md:flex items-center gap-2">
+                        {navGroups.map((group) => {
+                            const open = openMenu === group.label;
+                            return (
+                                <div
+                                    key={group.label}
+                                    className="relative"
+                                    onMouseEnter={() => setOpenMenu(group.label)}
+                                    onMouseLeave={() => setOpenMenu(null)}
+                                >
+                                    <button
+                                        type="button"
+                                        aria-haspopup="menu"
+                                        aria-expanded={open}
+                                        onClick={() => setOpenMenu(open ? null : group.label)}
+                                        onFocus={() => setOpenMenu(group.label)}
+                                        className={cn(
+                                            "flex items-center gap-1.5 text-sm px-3 py-2 rounded-full transition-colors",
+                                            solid
+                                                ? "text-gge-muted hover:text-gge-ink"
+                                                : "text-white/80 hover:text-white"
+                                        )}
+                                    >
+                                        {group.label}
+                                        <ChevronDown
+                                            size={14}
+                                            className={cn(
+                                                "transition-transform duration-200",
+                                                open && "rotate-180"
+                                            )}
+                                        />
+                                    </button>
 
-                    {/* Right Action */}
-                    <div className="hidden md:flex items-center gap-4">
+                                    <AnimatePresence>
+                                        {open && (
+                                            <motion.div
+                                                initial={{ opacity: 0, y: 6 }}
+                                                animate={{ opacity: 1, y: 0 }}
+                                                exit={{ opacity: 0, y: 6 }}
+                                                transition={{ duration: 0.16, ease: "easeOut" }}
+                                                className="absolute left-0 top-full pt-2"
+                                            >
+                                                <div
+                                                    role="menu"
+                                                    className="w-72 bg-white rounded-xl border border-gge-line shadow-xl shadow-black/[0.07] p-2"
+                                                >
+                                                    {group.items.map((item) => (
+                                                        <Link
+                                                            key={item.label}
+                                                            role="menuitem"
+                                                            href={item.href}
+                                                            onClick={() => setOpenMenu(null)}
+                                                            className="flex items-start gap-3 px-4 py-3 rounded-lg hover:bg-gge-canvas transition-colors"
+                                                        >
+                                                            {item.brandDot && <BrandDot />}
+                                                            <span>
+                                                                <span className="block text-sm font-medium text-gge-ink">
+                                                                    {item.label}
+                                                                </span>
+                                                                <span className="block mt-0.5 text-xs text-gge-muted leading-relaxed">
+                                                                    {item.description}
+                                                                </span>
+                                                            </span>
+                                                        </Link>
+                                                    ))}
+                                                </div>
+                                            </motion.div>
+                                        )}
+                                    </AnimatePresence>
+                                </div>
+                            );
+                        })}
                         <Link
                             href="/talk"
-                            className="bg-white text-black text-sm font-bold px-6 py-2.5 rounded-full hover:bg-gray-200 transition-colors shadow-lg shadow-white/5"
+                            className={cn(
+                                "ml-3 text-sm font-medium px-5 py-2 rounded-full transition-colors",
+                                solid
+                                    ? "bg-gge-ink text-white hover:bg-black"
+                                    : "bg-white text-gge-ink hover:bg-gray-100"
+                            )}
                         >
                             Contact
                         </Link>
-                    </div>
+                    </nav>
 
-                    {/* Mobile Menu Toggle */}
+                    {/* Mobile toggle */}
                     <button
                         onClick={() => setIsOpen(!isOpen)}
-                        className="md:hidden p-2 text-white hover:bg-white/10 rounded-full transition-colors"
+                        className={cn(
+                            "md:hidden p-2 rounded-full transition-colors",
+                            solid || isOpen ? "text-gge-ink" : "text-white"
+                        )}
+                        aria-label={isOpen ? "Close menu" : "Open menu"}
                     >
                         {isOpen ? <X size={20} /> : <Menu size={20} />}
                     </button>
                 </div>
-            </motion.nav>
+            </header>
 
-            {/* Mobile Menu Overlay */}
+            {/* Mobile menu — groups laid out flat: every destination is one tap */}
             <AnimatePresence>
                 {isOpen && (
                     <motion.div
                         initial={{ opacity: 0 }}
                         animate={{ opacity: 1 }}
                         exit={{ opacity: 0 }}
-                        className="fixed inset-0 z-[90] bg-black/95 backdrop-blur-xl flex items-center justify-center p-6 md:hidden"
+                        transition={{ duration: 0.25 }}
+                        className="fixed inset-0 z-[90] bg-gge-canvas overflow-y-auto md:hidden"
                     >
-                        <ul className="flex flex-col items-center gap-8 w-full max-w-sm">
-                            {navLinks.map((link, i) => (
-                                <motion.li
-                                    key={link.label}
-                                    initial={{ opacity: 0, y: 20 }}
+                        <div className="min-h-full flex flex-col justify-center px-10 py-28">
+                            {navGroups.map((group, gi) => (
+                                <motion.div
+                                    key={group.label}
+                                    initial={{ opacity: 0, y: 14 }}
                                     animate={{ opacity: 1, y: 0 }}
-                                    transition={{ delay: i * 0.1 }}
-                                    className="w-full text-center"
+                                    transition={{ delay: 0.05 + gi * 0.08 }}
+                                    className={cn(gi > 0 && "mt-10")}
                                 >
-                                    <Link
-                                        href={link.href}
-                                        onClick={() => setIsOpen(false)}
-                                        target={link.isDownload ? "_blank" : undefined}
-                                        rel={link.isDownload ? "noopener noreferrer" : undefined}
-                                        className={cn(
-                                            "block w-full py-3 text-2xl font-bold text-white hover:text-emerald-400 transition-colors border-b border-white/10 flex items-center justify-center gap-3",
-                                            link.isDownload && "text-emerald-400"
-                                        )}
-                                    >
-                                        {link.label}
-                                        {link.isDownload && <Download size={20} />}
-                                    </Link>
-
-                                </motion.li>
+                                    <p className="font-mono text-xs uppercase tracking-widest text-gge-muted mb-3">
+                                        {group.label}
+                                    </p>
+                                    {group.items.map((item) => (
+                                        <Link
+                                            key={item.label}
+                                            href={item.href}
+                                            onClick={() => setIsOpen(false)}
+                                            className="flex items-center gap-3 py-3.5 text-2xl font-light tracking-tight text-gge-ink border-b border-gge-line"
+                                        >
+                                            {item.brandDot && (
+                                                <span
+                                                    className="w-2.5 h-2.5 rounded-full shrink-0"
+                                                    style={{
+                                                        background:
+                                                            "linear-gradient(90deg, #3C1684 50%, #C9962E 50%)",
+                                                    }}
+                                                />
+                                            )}
+                                            {item.label}
+                                        </Link>
+                                    ))}
+                                </motion.div>
                             ))}
-                            <motion.li
-                                initial={{ opacity: 0, scale: 0.9 }}
-                                animate={{ opacity: 1, scale: 1 }}
-                                transition={{ delay: 0.4 }}
-                                className="w-full mt-4"
+                            <motion.div
+                                initial={{ opacity: 0, y: 14 }}
+                                animate={{ opacity: 1, y: 0 }}
+                                transition={{ delay: 0.28 }}
+                                className="mt-12"
                             >
                                 <Link
                                     href="/talk"
                                     onClick={() => setIsOpen(false)}
-                                    className="block w-full py-4 text-center text-lg font-bold text-black bg-white rounded-xl shadow-xl active:scale-95 transition-transform"
+                                    className="inline-block bg-gge-ink text-white font-medium px-8 py-3.5 rounded-full"
                                 >
-                                    Contact Us
+                                    Contact us
                                 </Link>
-                            </motion.li>
-                        </ul>
+                            </motion.div>
+                        </div>
                     </motion.div>
                 )}
             </AnimatePresence>

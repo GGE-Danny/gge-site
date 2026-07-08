@@ -2,8 +2,161 @@
 @tailwind components;
 @tailwind utilities;
 
+html {
+  scroll-behavior: smooth;
+}
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+}
+
 body {
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-geist-sans), ui-sans-serif, system-ui, sans-serif;
+}
+
+/* ── GGE editorial register ──────────────────────────────────────────────
+   Small tracked-out label that opens every section. */
+.eyebrow {
+  font-size: 0.6875rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  font-weight: 600;
+}
+
+/* ── Intro: the arrival moment ───────────────────────────────────────────
+   A quiet paper field. The eagle mark rises, a soft emerald light catches
+   it and recedes, the field fades. Plays once per session; a click, key
+   or scroll ends it early (pointer events pass straight through). */
+.gge-intro {
+  position: fixed;
+  inset: 0;
+  z-index: 200;
+  background: #f7f6f2;
+  display: flex;
+  align-items: center;
+  pointer-events: none;
+}
+.gge-intro.leaving {
+  opacity: 0;
+  transition: opacity 0.55s ease;
+}
+.gge-intro-inner {
+  position: relative;
+  margin-left: clamp(2.5rem, 14vw, 13rem);
+}
+.gge-intro-mark {
+  position: relative;
+  width: 76px;
+  height: 76px;
+  opacity: 0;
+}
+.gge-intro.play .gge-intro-mark {
+  animation: gge-intro-rise 0.7s cubic-bezier(0.2, 0.6, 0.25, 1) 0.1s forwards;
+}
+/* The sheen lives inside the eagle's own silhouette via an alpha mask */
+.gge-intro-sheen {
+  position: absolute;
+  inset: 0;
+  -webkit-mask-image: url("/eagle-logo.png");
+  mask-image: url("/eagle-logo.png");
+  -webkit-mask-size: contain;
+  mask-size: contain;
+  -webkit-mask-repeat: no-repeat;
+  mask-repeat: no-repeat;
+  -webkit-mask-position: center;
+  mask-position: center;
+  background: linear-gradient(
+    100deg,
+    transparent 32%,
+    rgba(23, 169, 107, 0.9) 50%,
+    transparent 68%
+  );
+  background-size: 300% 100%;
+  background-position: 140% 0;
+  background-repeat: no-repeat;
+  opacity: 0;
+}
+.gge-intro.play .gge-intro-sheen {
+  animation: gge-intro-sheen 1.5s cubic-bezier(0.45, 0, 0.2, 1) 0.6s forwards;
+}
+/* Ambient glow drifting past behind the mark */
+.gge-intro-glow {
+  position: absolute;
+  width: 300px;
+  height: 300px;
+  left: -112px;
+  top: -112px;
+  border-radius: 9999px;
+  background: radial-gradient(
+    closest-side,
+    rgba(23, 169, 107, 0.16),
+    transparent 72%
+  );
+  opacity: 0;
+}
+.gge-intro.play .gge-intro-glow {
+  animation: gge-intro-glow 1.9s ease-in-out 0.45s forwards;
+}
+.gge-intro-word {
+  margin-top: 1.4rem;
+  opacity: 0;
+}
+.gge-intro.play .gge-intro-word {
+  animation: gge-intro-rise 0.7s cubic-bezier(0.2, 0.6, 0.25, 1) 0.45s forwards;
+}
+
+@keyframes gge-intro-rise {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+@keyframes gge-intro-sheen {
+  0% {
+    opacity: 0;
+    background-position: 140% 0;
+  }
+  15% {
+    opacity: 1;
+  }
+  85% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+    background-position: -40% 0;
+  }
+}
+@keyframes gge-intro-glow {
+  0% {
+    opacity: 0;
+    transform: translateX(-46px) scale(0.85);
+  }
+  45% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+    transform: translateX(52px) scale(1.05);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .gge-intro.play .gge-intro-mark,
+  .gge-intro.play .gge-intro-word {
+    animation: none;
+    opacity: 1;
+    transform: none;
+  }
+  .gge-intro-sheen,
+  .gge-intro-glow {
+    display: none;
+  }
 }
 
 @layer base {
@@ -79,5 +232,139 @@ body {
   }
   body {
     @apply bg-background text-foreground;
+  }
+}
+
+/* ── Gendal brand (Royal Marketplace section) ─────────────────────────────
+   Faithful to the Gendal identity in royal-storefront: warm cream canvas,
+   espresso ink, crown gold, and the Gambian tricolor used as a thread —
+   identity, not chrome. Values are fixed; this panel does not follow the
+   site's dark theme. */
+.gendal-panel {
+  --gendal-cream: #f8f1e2;
+  --gendal-card: #fdfaf2;
+  --gendal-ink: #3e2f23;
+  --gendal-muted: #77614d;
+  --gendal-border: #e2d5ba;
+  --gendal-gold: #c9962e;
+  --gendal-gold-soft: #f3ce6b;
+  --gendal-green: #2e7d3a;
+  --flag-red: #ce1126;
+  --flag-blue: #0c1c8c;
+  --flag-green: #3a7728;
+  --wordmark: #4a3626;
+  --wordmark-shine: #e5b84f;
+  background: var(--gendal-cream);
+  color: var(--gendal-ink);
+}
+
+/* The tricolor thread — Gendal's signature stripe (6:1:4:1:6) */
+.gendal-thread {
+  height: 6px;
+  background: linear-gradient(
+    to bottom,
+    var(--flag-red) 0 33.3%,
+    #fff 33.3% 38.9%,
+    var(--flag-blue) 38.9% 61.1%,
+    #fff 61.1% 66.7%,
+    var(--flag-green) 66.7% 100%
+  );
+}
+.gendal-tick {
+  display: inline-block;
+  width: 22px;
+  height: 5px;
+  border-radius: 3px;
+  flex: 0 0 auto;
+  background: linear-gradient(
+    to right,
+    var(--flag-red) 0 32%,
+    #fff 32% 36%,
+    var(--flag-blue) 36% 64%,
+    #fff 64% 68%,
+    var(--flag-green) 68% 100%
+  );
+}
+
+/* Batik diamond texture, tinted for the cream panel */
+.gendal-batik {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='30' height='30'%3E%3Cpath d='M15 1 29 15 15 29 1 15Z' fill='none' stroke='%233E2A1C' stroke-opacity='.05'/%3E%3C/svg%3E");
+}
+
+/* Wordmark: shining italic serif, written on when the panel scrolls in */
+.wordmark {
+  font-family: var(--font-fraunces), Georgia, serif;
+  font-style: italic;
+  font-weight: 640;
+  letter-spacing: 0.005em;
+  background-image: linear-gradient(
+    105deg,
+    var(--wordmark) 0%,
+    var(--wordmark) 42%,
+    var(--wordmark-shine) 50%,
+    var(--wordmark) 58%,
+    var(--wordmark) 100%
+  );
+  background-size: 250% 100%;
+  background-position: -60% 0;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+.logo-animate .wordmark {
+  clip-path: inset(-15% 108% -15% -6%);
+  animation:
+    wordmark-write 0.85s cubic-bezier(0.25, 0.6, 0.3, 1) 0.5s forwards,
+    wordmark-shine 1.3s ease-out 1.35s forwards;
+}
+.logo-animate .logo-mark {
+  animation: mark-in 0.55s cubic-bezier(0.175, 0.885, 0.32, 1.275) both;
+}
+.logo-animate .logo-crown {
+  transform-box: fill-box;
+  transform-origin: 20% 90%;
+  animation: crown-land 0.6s cubic-bezier(0.2, 0.9, 0.3, 1.3) 0.35s both;
+}
+
+@keyframes wordmark-write {
+  to {
+    clip-path: inset(-15% -10% -15% -6%);
+  }
+}
+@keyframes wordmark-shine {
+  from {
+    background-position: 160% 0;
+  }
+  to {
+    background-position: -60% 0;
+  }
+}
+@keyframes mark-in {
+  from {
+    opacity: 0;
+    transform: scale(0.55) rotate(-10deg);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+@keyframes crown-land {
+  from {
+    opacity: 0;
+    transform: translateY(-9px) rotate(9deg);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .logo-animate .wordmark,
+  .logo-animate .logo-mark,
+  .logo-animate .logo-crown {
+    animation: none;
+    clip-path: none;
   }
 }

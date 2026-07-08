@@ -1,44 +1,97 @@
 import Link from 'next/link';
+import Image from 'next/image';
+
+const groups: {
+  heading: string;
+  links: { label: string; href: string; external?: boolean }[];
+}[] = [
+  {
+    heading: "Royal Marketplace",
+    links: [
+      { label: "The Total Retail Engine", href: "/royal-marketplace" },
+      { label: "Royal Inventory", href: "/royal-marketplace#royal-inventory" },
+      { label: "Gendal", href: "/royal-marketplace#gendal" },
+    ],
+  },
+  {
+    heading: "Company",
+    links: [
+      { label: "About", href: "/#about" },
+      { label: "Experience", href: "/#experience" },
+      { label: "Contact", href: "/talk" },
+    ],
+  },
+  {
+    heading: "Contact",
+    links: [
+      { label: "danielachigbue55@gmail.com", href: "mailto:danielachigbue55@gmail.com", external: true },
+      { label: "+220 359 1788", href: "tel:+2203591788", external: true },
+    ],
+  },
+  {
+    heading: "Social",
+    links: [
+      { label: "GitHub", href: "https://github.com/GGE-Danny", external: true },
+      { label: "LinkedIn", href: "https://www.linkedin.com/in/daniel-achigbue/", external: true },
+    ],
+  },
+];
 
 const Footer = () => {
   return (
-    <footer className="bg-black py-24 border-t border-white/10 relative overflow-hidden">
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_bottom,_var(--tw-gradient-stops))] from-neutral-900 via-black to-black pointer-events-none" />
-
-      <div className="max-w-7xl mx-auto px-6 relative z-10 flex flex-col md:flex-row justify-between items-start gap-12">
-
-        {/* Navigation Links */}
-        <div className="flex flex-col gap-4">
-          <h3 className="text-white text-lg font-bold mb-2">Navigation</h3>
-          <Link href="/#projects" className="text-gray-400 hover:text-emerald-400 transition-colors font-medium">Projects</Link>
-          <Link href="/#profile" className="text-gray-400 hover:text-emerald-400 transition-colors font-medium">About</Link>
-          <Link href="/talk" className="text-gray-400 hover:text-emerald-400 transition-colors font-medium">Contact</Link>
-        </div>
-
-        {/* Contact Info */}
-        <div className="flex flex-col gap-4">
-          <h3 className="text-white text-lg font-bold mb-2">Contact</h3>
-          <a href="mailto:danielachigbue55@gmail.com" className="text-gray-400 hover:text-emerald-400 transition-colors font-medium">
-            danielachigbue55@gmail.com
-          </a>
-          <a href="tel:+2203591788" className="text-gray-400 hover:text-emerald-400 transition-colors font-medium">
-            +220 359 1788
-          </a>
-        </div>
-
-        {/* Social Links */}
-        <div className="flex flex-col gap-4">
-          <h3 className="text-white text-lg font-bold mb-2">Social</h3>
-          <a href="https://github.com/GGE-Danny" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-emerald-400 transition-colors font-medium">GitHub</a>
-          <a href="https://www.linkedin.com/in/daniel-achigbue/" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-emerald-400 transition-colors font-medium">LinkedIn</a>
-        </div>
-
+    <footer className="bg-gge-coal text-white">
+      <div className="max-w-6xl mx-auto px-6 py-20 grid grid-cols-2 md:grid-cols-4 gap-x-8 gap-y-12">
+        {groups.map((group) => (
+          <div key={group.heading}>
+            <h3 className="font-mono text-xs uppercase tracking-widest text-white/40 mb-6">
+              {group.heading}
+            </h3>
+            <ul className="space-y-3.5">
+              {group.links.map((link) =>
+                link.external ? (
+                  <li key={link.label}>
+                    <a
+                      href={link.href}
+                      target={link.href.startsWith("http") ? "_blank" : undefined}
+                      rel={link.href.startsWith("http") ? "noopener noreferrer" : undefined}
+                      className="text-sm text-white/70 hover:text-white transition-colors break-words"
+                    >
+                      {link.label}
+                    </a>
+                  </li>
+                ) : (
+                  <li key={link.label}>
+                    <Link
+                      href={link.href}
+                      className="text-sm text-white/70 hover:text-white transition-colors"
+                    >
+                      {link.label}
+                    </Link>
+                  </li>
+                )
+              )}
+            </ul>
+          </div>
+        ))}
       </div>
 
-      <div className="max-w-7xl mx-auto px-6 relative z-10 mt-16 pt-8 border-t border-white/5 text-center md:text-left">
-        <p className="text-gray-600 text-sm font-medium">
-          © {new Date().getFullYear()} GGE | DANNY. All rights reserved.
-        </p>
+      <div className="border-t border-white/10">
+        <div className="max-w-6xl mx-auto px-6 py-8 flex flex-col md:flex-row items-center justify-between gap-4">
+          <div className="flex items-center gap-3">
+            <span className="relative w-7 h-7 rounded-full bg-white overflow-hidden">
+              <Image
+                src="/eagle-logo.png"
+                alt=""
+                fill
+                className="object-contain p-1"
+              />
+            </span>
+            <span className="text-sm text-white/60">GGE Enterprise</span>
+          </div>
+          <p className="text-xs text-white/40">
+            © {new Date().getFullYear()} GGE Enterprise. All rights reserved.
+          </p>
+        </div>
       </div>
     </footer>
   );

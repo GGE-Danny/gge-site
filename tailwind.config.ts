@@ -41,6 +41,15 @@ export default {
   			}
   		},
   		colors: {
+  			gge: {
+  				canvas: '#F7F6F2',
+  				ink: '#171B18',
+  				coal: '#131714',
+  				muted: '#5B625C',
+  				line: '#E4E4DC',
+  				emerald: '#0B6B4E',
+  				bright: '#17A96B'
+  			},
   			background: 'hsl(var(--background))',
   			foreground: 'hsl(var(--foreground))',
   			card: {
