@@ -83,6 +83,7 @@ const Footer = () => {
                 src="/eagle-logo.png"
                 alt=""
                 fill
+                sizes="28px"
                 className="object-contain p-1"
               />
             </span>

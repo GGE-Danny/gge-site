@@ -54,6 +54,7 @@ const MarketplaceTeaser = () => {
                       src="/products/royal-inventory-logo.png"
                       alt=""
                       fill
+                      sizes="40px"
                       className="object-cover"
                     />
                   </span>

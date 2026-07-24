@@ -106,6 +106,7 @@ const Navbar = () => {
                                 src="/eagle-logo.png"
                                 alt="GGE"
                                 fill
+                                sizes="36px"
                                 className="object-contain p-1.5"
                             />
                         </span>
