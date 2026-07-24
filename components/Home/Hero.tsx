@@ -10,12 +10,13 @@ const Hero = () => {
         src="/Eagle.jpg"
         alt="An eagle in flight — the GGE mark"
         fill
-        className="object-cover opacity-60 mix-blend-overlay"
+        className="object-cover object-[70%_35%] opacity-80"
         priority
       />
-      {/* Soft Stripe-like gradient overlays for a warm, confident feel */}
-      <div className="absolute inset-0 bg-gradient-to-b from-slate-900/40 via-slate-900/10 to-slate-900/90" />
-      <div className="absolute inset-0 bg-gradient-to-tr from-slate-900 via-transparent to-transparent opacity-90" />
+      {/* Two gradients only: a legibility floor for the bottom-anchored text,
+          and left-column protection that lets the right side breathe. */}
+      <div className="absolute inset-0 bg-gradient-to-t from-slate-950/95 via-slate-950/35 to-slate-950/25" />
+      <div className="absolute inset-0 bg-gradient-to-r from-slate-950/75 via-slate-950/30 to-transparent" />
 
       <div className="absolute inset-0 flex items-end">
         <div className="max-w-6xl mx-auto px-6 pb-24 md:pb-28 w-full relative z-10">
@@ -40,7 +41,7 @@ const Hero = () => {
             </Link>
             <Link
               href="/talk"
-              className="text-slate-300 hover:text-white transition-colors font-medium"
+              className="text-slate-300 hover:text-white transition-colors font-medium border-b border-transparent pb-1"
             >
               Partner with us
             </Link>
