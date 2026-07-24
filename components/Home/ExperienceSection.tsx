@@ -59,12 +59,12 @@ const roles = [
 
 const ExperienceSection = () => {
     return (
-        <section id="experience" className="scroll-mt-16 bg-slate-900 py-28 md:py-36 border-t border-slate-800">
+        <section id="experience" className="scroll-mt-16 bg-[#111827] py-28 md:py-36 border-t border-[#1E293B]">
             <div className="max-w-6xl mx-auto px-6">
                 <div className="mb-16 md:mb-20">
-                    <p className="eyebrow text-slate-400 mb-5">Experience</p>
-                    <h2 className="text-3xl md:text-5xl font-medium tracking-tight text-white leading-[1.1] max-w-2xl">
-                        The track record behind GGE
+                    <p className="eyebrow text-emerald-400/80 mb-5">Experience</p>
+                    <h2 className="text-3xl md:text-5xl font-light tracking-tight text-white leading-[1.1] max-w-2xl">
+                        The <span className="font-medium">track record</span> behind GGE
                     </h2>
                     <p className="mt-6 text-slate-300/80 max-w-2xl text-lg md:text-xl font-light leading-relaxed">
                         Daniel&apos;s history of building and running banking and fintech systems — work where uptime and accuracy are non-negotiable.
@@ -79,11 +79,12 @@ const ExperienceSection = () => {
                         >
                             {/* Date + mark */}
                             <div className="md:col-span-3 flex md:flex-col items-center md:items-start gap-4">
-                                <div className="relative w-10 h-10 rounded-md bg-white p-1 overflow-hidden shrink-0">
+                                <div className="relative w-10 h-10 rounded-lg bg-white p-1.5 ring-1 ring-white/10 overflow-hidden shrink-0">
                                     <Image
                                         src={r.logo}
                                         alt={r.company}
                                         fill
+                                        sizes="40px"
                                         className="object-contain"
                                     />
                                 </div>

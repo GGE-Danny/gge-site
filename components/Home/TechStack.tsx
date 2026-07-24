@@ -24,9 +24,9 @@ const TechStack = () => {
         <section id="how-we-work" className="scroll-mt-16 py-28 md:py-36 bg-white">
             <div className="max-w-6xl mx-auto px-6">
                 <div className="mb-14 md:mb-16">
-                    <p className="eyebrow text-slate-500 mb-5">How we work</p>
-                    <h2 className="text-3xl md:text-5xl font-medium tracking-tight text-slate-900 leading-[1.1]">
-                        Reliability as a service
+                    <p className="eyebrow text-gge-emerald mb-5">How we work</p>
+                    <h2 className="text-3xl md:text-5xl font-light tracking-tight text-slate-900 leading-[1.1]">
+                        <span className="font-medium">Reliability</span>, as a service
                     </h2>
                     <p className="mt-6 text-slate-600 max-w-2xl text-lg md:text-xl font-light leading-relaxed">
                         We believe technology should recede into the background. Your focus belongs on your business, your customers, and your growth. We handle the engine.

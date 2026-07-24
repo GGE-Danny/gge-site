@@ -15,8 +15,8 @@ const TeamSection = () => {
             <div className="max-w-6xl mx-auto px-6">
                 <div className="mb-16 md:mb-24">
                     <p className="eyebrow text-slate-400 mb-5">Our Team</p>
-                    <h2 className="text-3xl md:text-5xl font-medium tracking-tight text-white leading-[1.1] max-w-2xl">
-                        The people behind the promise.
+                    <h2 className="text-3xl md:text-5xl font-light tracking-tight text-white leading-[1.1] max-w-2xl">
+                        The people behind the <span className="font-medium">promise</span>.
                     </h2>
                     <p className="mt-6 text-slate-300/80 max-w-2xl text-lg md:text-xl font-light leading-relaxed">
                         GGE is founder-led. This is who answers for the promise today — the team grows as the work does.
