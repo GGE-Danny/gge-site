@@ -107,7 +107,7 @@ const MarketplacePage = () => {
                 </React.Fragment>
               ))}
             </div>
-            <div className="mt-5 flex items-center gap-6 font-mono text-[10px] uppercase tracking-[0.15em] text-white/35">
+            <div className="mt-5 flex items-center gap-6 font-mono text-[10px] uppercase tracking-[0.15em] text-white/55">
               <span className="flex items-center gap-2">
                 <StageDot owner="ri" /> Royal Inventory
               </span>

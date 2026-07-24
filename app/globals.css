@@ -224,17 +224,6 @@ body {
   }
 }
 
-
-
-@layer base {
-  * {
-    @apply border-border outline-ring/50;
-  }
-  body {
-    @apply bg-background text-foreground;
-  }
-}
-
 /* ── Gendal brand (Royal Marketplace section) ─────────────────────────────
    Faithful to the Gendal identity in royal-storefront: warm cream canvas,
    espresso ink, crown gold, and the Gambian tricolor used as a thread —

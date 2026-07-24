@@ -22,9 +22,9 @@ const navGroups: NavGroup[] = [
                 brandDot: true,
             },
             {
-                label: "How we build",
-                description: "The capabilities behind the products",
-                href: "/#capabilities",
+                label: "How we work",
+                description: "Ownership, reliability, and how we deliver",
+                href: "/#how-we-work",
             },
         ],
     },
@@ -44,6 +44,10 @@ const navGroups: NavGroup[] = [
         ],
     },
 ];
+
+/* One brand focus ring, visible on both the paper navbar and the dark hero */
+const focusRing =
+    "focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-emerald-400";
 
 /* Two-tone dot: Royal Inventory purple meets Gendal gold */
 const BrandDot = () => (
@@ -96,7 +100,7 @@ const Navbar = () => {
             >
                 <div className="max-w-6xl mx-auto px-6 h-16 md:h-[4.5rem] flex items-center justify-between">
                     {/* Mark + name */}
-                    <Link href="/" className="flex items-center gap-3">
+                    <Link href="/" className={cn("flex items-center gap-3 rounded-full", focusRing)}>
                         <span className="relative w-9 h-9 rounded-full bg-white shadow-sm ring-1 ring-black/5 overflow-hidden shrink-0">
                             <Image
                                 src="/eagle-logo.png"
@@ -134,6 +138,7 @@ const Navbar = () => {
                                         onFocus={() => setOpenMenu(group.label)}
                                         className={cn(
                                             "flex items-center gap-1.5 text-sm px-3 py-2 rounded-full transition-colors",
+                                            focusRing,
                                             solid
                                                 ? "text-gge-muted hover:text-gge-ink"
                                                 : "text-white/80 hover:text-white"
@@ -168,7 +173,10 @@ const Navbar = () => {
                                                             role="menuitem"
                                                             href={item.href}
                                                             onClick={() => setOpenMenu(null)}
-                                                            className="flex items-start gap-3 px-4 py-3 rounded-lg hover:bg-gge-canvas transition-colors"
+                                                            className={cn(
+                                                                "flex items-start gap-3 px-4 py-3 rounded-lg hover:bg-gge-canvas transition-colors",
+                                                                focusRing
+                                                            )}
                                                         >
                                                             {item.brandDot && <BrandDot />}
                                                             <span>
@@ -192,6 +200,7 @@ const Navbar = () => {
                             href="/talk"
                             className={cn(
                                 "ml-3 text-sm font-medium px-5 py-2 rounded-full transition-colors",
+                                focusRing,
                                 solid
                                     ? "bg-gge-ink text-white hover:bg-black"
                                     : "bg-white text-gge-ink hover:bg-gray-100"
@@ -206,6 +215,7 @@ const Navbar = () => {
                         onClick={() => setIsOpen(!isOpen)}
                         className={cn(
                             "md:hidden p-2 rounded-full transition-colors",
+                            focusRing,
                             solid || isOpen ? "text-gge-ink" : "text-white"
                         )}
                         aria-label={isOpen ? "Close menu" : "Open menu"}
@@ -242,7 +252,10 @@ const Navbar = () => {
                                             key={item.label}
                                             href={item.href}
                                             onClick={() => setIsOpen(false)}
-                                            className="flex items-center gap-3 py-3.5 text-2xl font-light tracking-tight text-gge-ink border-b border-gge-line"
+                                            className={cn(
+                                                "flex items-center gap-3 py-3.5 text-2xl font-light tracking-tight text-gge-ink border-b border-gge-line",
+                                                focusRing
+                                            )}
                                         >
                                             {item.brandDot && (
                                                 <span
@@ -267,7 +280,10 @@ const Navbar = () => {
                                 <Link
                                     href="/talk"
                                     onClick={() => setIsOpen(false)}
-                                    className="inline-block bg-gge-ink text-white font-medium px-8 py-3.5 rounded-full"
+                                    className={cn(
+                                        "inline-block bg-gge-ink text-white font-medium px-8 py-3.5 rounded-full",
+                                        focusRing
+                                    )}
                                 >
                                     Contact us
                                 </Link>
