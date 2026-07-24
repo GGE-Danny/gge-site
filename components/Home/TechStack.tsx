@@ -1,54 +1,49 @@
 import React from 'react';
 
-const skills = [
+const principles = [
     {
-        category: "Frontend",
-        items: ["React", "Next.js", "Blade", "TypeScript", "Tailwind CSS"],
+        title: "Ownership end-to-end",
+        description: "We don't hand over a codebase and walk away. We run the infrastructure, handle the uptime, and ensure your daily operations never miss a beat."
     },
     {
-        category: "Backend",
-        items: ["Node.js", "C#", ".NET", "Java", "PHP", "Laravel", "Filament", "PostgreSQL"],
+        title: "Built for reality",
+        description: "Our systems are designed for real businesses handling real stock and real money. We prioritize fault tolerance, precise records, and uncompromising reliability over chasing trends."
     },
     {
-        category: "Mobile",
-        items: ["Flutter", "iOS & Android deployment"],
+        title: "Invisible complexity",
+        description: "The hardest technical challenges—inventory synchronization, cross-channel sales, marketplace integration—are solved quietly in the background, giving you a clean, simple interface to run your business."
     },
     {
-        category: "DevOps & Cloud",
-        items: ["Git", "Docker", "AWS", "Azure", "CI/CD"],
-    },
-    {
-        category: "Delivery",
-        items: ["Project management", "Team leadership", "Strategic planning", "Agile methodologies"],
-    },
+        title: "Kingdom first",
+        description: "We seek the kingdom of God before our own — which, in daily work, means honest records, honest dealing, and promises kept."
+    }
 ];
 
 const TechStack = () => {
     return (
-        <section id="capabilities" className="scroll-mt-16 py-28 md:py-36">
+        <section id="how-we-work" className="scroll-mt-16 py-28 md:py-36 bg-white">
             <div className="max-w-6xl mx-auto px-6">
                 <div className="mb-14 md:mb-16">
-                    <p className="eyebrow text-gge-emerald mb-5">Capabilities</p>
-                    <h2 className="text-3xl md:text-5xl font-light tracking-tight text-gge-ink leading-[1.1]">
-                        How we build
+                    <p className="eyebrow text-slate-500 mb-5">How we work</p>
+                    <h2 className="text-3xl md:text-5xl font-medium tracking-tight text-slate-900 leading-[1.1]">
+                        Reliability as a service
                     </h2>
-                    <p className="mt-6 text-gge-muted max-w-2xl text-lg leading-relaxed">
-                        The frameworks, tools, and practices behind GGE&apos;s
-                        products.
+                    <p className="mt-6 text-slate-600 max-w-2xl text-lg md:text-xl font-light leading-relaxed">
+                        We believe technology should recede into the background. Your focus belongs on your business, your customers, and your growth. We handle the engine.
                     </p>
                 </div>
 
-                <div className="border-t border-gge-line">
-                    {skills.map((skill) => (
+                <div className="border-t border-slate-200">
+                    {principles.map((principle) => (
                         <div
-                            key={skill.category}
-                            className="grid grid-cols-1 md:grid-cols-12 gap-2 md:gap-6 py-7 border-b border-gge-line"
+                            key={principle.title}
+                            className="grid grid-cols-1 md:grid-cols-12 gap-4 md:gap-8 py-10 border-b border-slate-200"
                         >
-                            <div className="md:col-span-4 font-mono text-xs uppercase tracking-widest text-gge-muted md:pt-1.5">
-                                {skill.category}
+                            <div className="md:col-span-4 font-medium text-lg text-slate-900 md:pt-1">
+                                {principle.title}
                             </div>
-                            <div className="md:col-span-8 text-gge-ink text-lg font-light leading-relaxed">
-                                {skill.items.join("  ·  ")}
+                            <div className="md:col-span-8 text-slate-600 text-lg font-light leading-relaxed">
+                                {principle.description}
                             </div>
                         </div>
                     ))}

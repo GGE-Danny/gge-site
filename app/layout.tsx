@@ -23,9 +23,9 @@ const fraunces = Fraunces({
 });
 
 export const metadata: Metadata = {
-  title: "GGE — A technology company, Kingdom first",
+  title: "GGE Enterprise — We run your operations. You run the business.",
   description:
-    "GGE builds the infrastructure that helps businesses and communities operate, connect, and thrive. Today that's the Total Retail Engine — Royal Inventory and Gendal, starting in Gambian retail.",
+    "GGE is a service company. We run the complete operating engine for retail businesses — Royal Inventory and Gendal, the Total Retail Engine — starting in Gambian retail.",
 };
 
 export default function RootLayout({
