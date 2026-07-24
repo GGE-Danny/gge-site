@@ -19,8 +19,9 @@ const ContactPage = () => {
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     const { name, subject, message } = formData;
-    // mailto keeps the form dependency-free; the sender's name rides in the body
-    const bodyContent = `Name: ${name}\n\n${message}`;
+    // mailto keeps the form dependency-free; the sender's name and reply
+    // address ride in the body
+    const bodyContent = `Name: ${name}\nEmail: ${formData.email}\n\n${message}`;
     const mailtoLink = `mailto:danielachigbue55@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(bodyContent)}`;
     window.location.href = mailtoLink;
   };
