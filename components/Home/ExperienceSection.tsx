@@ -5,7 +5,7 @@ const roles = [
     {
         company: "Coders Clutch",
         role: "Head of Delivery and Engineering",
-        period: "Present",
+        period: "Oct 2025 — Present",
         current: true,
         logo: "/coders_logo.png",
         summary:
@@ -25,7 +25,7 @@ const roles = [
         company: "Guaranty Trust Bank (GTBank)",
         role: "Software Engineer",
         period: "Jun 2024 — Present",
-        current: false,
+        current: true,
         logo: "/gtco-logo.png",
         summary:
             "Building and maintaining mobile and corporate banking infrastructure for GTBank, where uptime and accuracy are non-negotiable.",
@@ -88,12 +88,15 @@ const ExperienceSection = () => {
                                         className="object-contain"
                                     />
                                 </div>
-                                <p className="font-mono text-xs tracking-wide text-white/60">
-                                    {r.current ? (
-                                        <span className="text-emerald-400">Present</span>
-                                    ) : (
-                                        r.period
-                                    )}
+                                {/* Every role shows its real span; `current` only
+                                    drives the accent, so two concurrent roles
+                                    can both read as current without ambiguity. */}
+                                <p
+                                    className={`font-mono text-xs tracking-wide ${
+                                        r.current ? "text-emerald-400" : "text-white/60"
+                                    }`}
+                                >
+                                    {r.period}
                                 </p>
                             </div>
 
