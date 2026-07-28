@@ -1,12 +1,42 @@
 import TeamPhoto from './TeamPhoto';
 
+/* Ordered by seniority; the grid is fluid and handles any count. */
 const teamMembers = [
     {
         name: "Daniel Ofili Achigbue",
-        role: "Founder & Lead Engineer",
-        photo: "/team/daniel.jpg",
+        role: "Chief Executive Officer",
+        photo: "/team/daniel-o-achigbue.jpg",
     },
-    // The layout is fluid and will gracefully handle additional members here.
+    {
+        name: "Daisy C Edmond",
+        role: "Managing Director",
+        photo: "/team/daisy-c-edmond.jpg",
+    },
+    {
+        name: "Jassika Ledwani",
+        role: "Chief Operating Officer",
+        photo: "/team/jassika-ledwani.jpg",
+    },
+    {
+        name: "Emeka Agha",
+        role: "Chief Financial Officer",
+        photo: "/team/emeka-agha.jpg",
+    },
+    {
+        name: "Temitope Osatuyi",
+        role: "Chief Information Officer",
+        photo: "/team/temitope-osatuyi.jpg",
+    },
+    {
+        name: "Kayode Kolawole",
+        role: "Chief Innovation Officer",
+        photo: "/team/kayode-kolawole.jpg",
+    },
+    {
+        name: "Grace Quayson",
+        role: "Chief of Staff",
+        photo: "/team/grace-quayson.jpg",
+    },
 ];
 
 const TeamSection = () => {
@@ -19,7 +49,7 @@ const TeamSection = () => {
                         The people behind the <span className="font-medium">promise</span>.
                     </h2>
                     <p className="mt-6 text-slate-300/80 max-w-2xl text-lg md:text-xl font-light leading-relaxed">
-                        GGE is founder-led. This is who answers for the promise today — the team grows as the work does.
+                        This is the leadership that answers for the promise — the people accountable for the systems our clients run on every day.
                     </p>
                 </div>
 
