@@ -43,7 +43,7 @@ const Footer = () => {
       <div className="max-w-6xl mx-auto px-6 py-20 grid grid-cols-2 md:grid-cols-4 gap-x-8 gap-y-12">
         {groups.map((group) => (
           <div key={group.heading}>
-            <h3 className="font-mono text-xs uppercase tracking-widest text-white/40 mb-6">
+            <h3 className="font-mono text-xs uppercase tracking-widest text-white/60 mb-6">
               {group.heading}
             </h3>
             <ul className="space-y-3.5">
@@ -89,7 +89,7 @@ const Footer = () => {
             </span>
             <span className="text-sm text-white/60">GGE Enterprise</span>
           </div>
-          <p className="text-xs text-white/40">
+          <p className="text-xs text-white/60">
             © {new Date().getFullYear()} GGE Enterprise. All rights reserved.
           </p>
         </div>
