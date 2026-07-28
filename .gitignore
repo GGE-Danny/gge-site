@@ -2,3 +2,9 @@ node_modules/
 .next/
 .dist/
 .out/
+
+# macOS
+.DS_Store
+
+# Full-resolution photo sources (not served)
+/photo-originals/
