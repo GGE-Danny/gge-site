@@ -22,10 +22,25 @@ const fraunces = Fraunces({
   axes: ["SOFT", "WONK", "opsz"],
 });
 
+const siteTitle = "GGE Enterprise — We run your operations. You run the business.";
+const siteDescription =
+  "GGE is a service company. We run the complete operating engine for retail businesses — Royal Inventory and Gendal, the Total Retail Engine — starting in Gambian retail.";
+
 export const metadata: Metadata = {
-  title: "GGE Enterprise — We run your operations. You run the business.",
-  description:
-    "GGE is a service company. We run the complete operating engine for retail businesses — Royal Inventory and Gendal, the Total Retail Engine — starting in Gambian retail.",
+  title: siteTitle,
+  description: siteDescription,
+  openGraph: {
+    title: siteTitle,
+    description: siteDescription,
+    siteName: "GGE Enterprise",
+    type: "website",
+    // og:image comes from app/opengraph-image.jpg (Next file convention).
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: siteTitle,
+    description: siteDescription,
+  },
 };
 
 export default function RootLayout({
