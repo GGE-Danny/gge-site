@@ -5,7 +5,7 @@ import { Github, Linkedin, Send } from 'lucide-react';
 const contactRows = [
   { label: 'Email', value: 'danielachigbue55@gmail.com', href: 'mailto:danielachigbue55@gmail.com' },
   { label: 'Phone', value: '+220 359 1788', href: 'tel:+2203591788' },
-  { label: 'Location', value: 'Global & Remote' },
+  { label: 'Location', value: 'The Gambia' },
 ];
 
 const ContactPage = () => {
