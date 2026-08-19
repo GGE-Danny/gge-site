@@ -36,11 +36,6 @@ const navGroups: NavGroup[] = [
                 description: "The company and its founder",
                 href: "/#about",
             },
-            {
-                label: "Experience",
-                description: "The track record behind GGE",
-                href: "/#experience",
-            },
         ],
     },
 ];

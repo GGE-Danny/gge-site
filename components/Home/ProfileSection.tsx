@@ -24,11 +24,14 @@ const ProfileSection = () => {
                                 starting in Gambian retail.
                             </p>
                             <p>
-                                The company is led by{' '}
+                                The company was founded and is led by{' '}
                                 <span className="text-slate-900 font-medium">Daniel Ofili Achigbue</span>,
                                 whose background spans fintech and banking — from building mobile
                                 banking at Guaranty Trust Bank to delivering
-                                fintech platforms like Kashma and Bonfo.
+                                fintech platforms like Kashma and Bonfo. That
+                                work includes core banking infrastructure now
+                                processing tens of millions of dollars in
+                                transaction volume annually.
                             </p>
                             <p>
                                 Driven by our Kingdom-first values, we build systems meant to be trusted with real
@@ -56,7 +59,7 @@ const ProfileSection = () => {
                                     Daniel Ofili Achigbue
                                 </span>
                                 <span className="font-mono text-xs uppercase tracking-widest text-slate-500">
-                                    Founder
+                                    Founder &amp; CEO
                                 </span>
                             </figcaption>
                         </figure>
