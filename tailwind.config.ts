@@ -98,5 +98,5 @@ export default {
   		}
   	}
   },
-  plugins: [ require("flowbite/plugin"), require("tailwindcss-animate")],
+  plugins: [require("tailwindcss-animate")],
 } satisfies Config;
