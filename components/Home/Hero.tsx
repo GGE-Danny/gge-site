@@ -1,18 +1,21 @@
 import React from "react";
-import Image from "next/image";
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 
 const Hero = () => {
   return (
     <section className="relative w-full h-[100svh] min-h-[600px] overflow-hidden bg-slate-900">
-      <Image
-        src="/Eagle.jpg"
-        alt="An eagle in flight — the GGE mark"
-        fill
-        className="object-cover object-[70%_35%] opacity-80"
-        priority
-      />
+      {/* Pre-sized AVIF/WebP so the 3G audience never downloads the
+          full-resolution original. */}
+      <picture>
+        <source srcSet="/Eagle.avif" type="image/avif" />
+        <img
+          src="/Eagle.webp"
+          alt="An eagle in flight — the GGE mark"
+          fetchPriority="high"
+          className="absolute inset-0 w-full h-full object-cover object-[70%_35%] opacity-80"
+        />
+      </picture>
       {/* Two gradients only: a legibility floor for the bottom-anchored text,
           and left-column protection that lets the right side breathe. */}
       <div className="absolute inset-0 bg-gradient-to-t from-slate-950/95 via-slate-950/35 to-slate-950/25" />
