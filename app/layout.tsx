@@ -27,6 +27,7 @@ const siteDescription =
   "GGE is a service company. We run the complete operating engine for retail businesses — Royal Inventory and Gendal, the Total Retail Engine — starting in Gambian retail.";
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://godgiveseverything.com"),
   title: siteTitle,
   description: siteDescription,
   openGraph: {
