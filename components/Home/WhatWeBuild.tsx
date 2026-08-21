@@ -23,13 +23,12 @@ const rows: {
       "Payments, wallets, mobile and core banking — systems trusted with other people's money.",
     proof: (
       <>
-        <span className="font-medium text-slate-900">
-          Founder-led, before GGE
-        </span>{" "}
-        — core banking infrastructure at Guaranty Trust Bank (GTCO Gambia),
-        now processing tens of millions of dollars in transaction volume
-        annually. Plus the Kashma and Bonfo fintech platforms, delivered in
-        prior roles.
+        <span className="font-medium text-slate-900">Founder-led</span> —
+        lead developer at Guaranty Trust Bank (GTCO Gambia), where he led
+        the integration of GTWorld, the country&apos;s largest banking app,
+        to the bank&apos;s core banking system — now processing tens of
+        millions of dollars in transaction volume annually. Plus the Kashma
+        and Bonfo fintech platforms, delivered at Cayor and Coders Clutch.
       </>
     ),
   },

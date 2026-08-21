@@ -19,15 +19,16 @@ const ProfileSection = () => {
                             <p>
                                 The company was founded and is led by{' '}
                                 <span className="text-slate-900 font-medium">Daniel Ofili Achigbue</span>,
-                                whose background spans fintech and banking —
-                                from working on core banking infrastructure,
-                                middlewares and public-facing applications at
-                                Guaranty Trust Bank (GTCO Gambia) — one of the
-                                biggest banks in Africa — to delivering
-                                fintech platforms like Kashma and Bonfo. That
-                                work includes core banking infrastructure now
-                                processing tens of millions of dollars in
-                                transaction volume annually.
+                                whose background spans fintech and banking.
+                                He is lead developer at Guaranty Trust Bank
+                                (GTCO Gambia) — one of the biggest banks in
+                                the country — where he leads the integration
+                                of GTWorld, the country&apos;s largest
+                                banking app, to the bank&apos;s core banking
+                                system, now processing tens of millions of
+                                dollars in transaction volume annually. He
+                                also delivered the Kashma and Bonfo fintech
+                                platforms at Cayor and Coders Clutch.
                             </p>
                             <p>
                                 Driven by our Kingdom-first values, we build systems meant to be trusted with real
