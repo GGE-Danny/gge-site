@@ -24,6 +24,32 @@ body {
   font-weight: 600;
 }
 
+/* Every interactive element gets the same visible focus (A11y floor E7) */
+:focus-visible {
+  outline: 2px solid #34d399;
+  outline-offset: 2px;
+}
+
+/* Live-status dot: the "sale arriving" pulse */
+.status-pulse {
+  animation: status-pulse 2.4s ease-in-out infinite;
+}
+@keyframes status-pulse {
+  0%,
+  100% {
+    opacity: 0.4;
+  }
+  50% {
+    opacity: 1;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .status-pulse {
+    animation: none;
+    opacity: 1;
+  }
+}
+
 /* ── Intro: the arrival moment ───────────────────────────────────────────
    A quiet paper field. The eagle mark rises, a soft emerald light catches
    it and recedes, the field fades. Plays once per session; a click, key
