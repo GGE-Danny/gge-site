@@ -45,12 +45,13 @@ const WhatWeRun = () => {
           </p>
         </Reveal>
 
-        <div className="mt-14 relative">
-          {/* Desktop spine / mobile rail — the only thing between stations */}
-          <div className="hidden md:block absolute left-0 right-0 top-[130px] h-[2px] bg-[#171B18] opacity-85" />
-          <div className="md:hidden absolute left-2 top-2 bottom-2 w-[2px] bg-[#171B18] opacity-85" />
+        <div className="mt-14">
+          <div className="relative">
+            {/* Desktop spine / mobile rail — the only thing between stations */}
+            <div className="hidden md:block absolute left-0 right-0 top-[130px] h-[2px] bg-[#171B18] opacity-85" />
+            <div className="md:hidden absolute left-2 top-2 bottom-2 w-[2px] bg-[#171B18] opacity-85" />
 
-          <div className="grid grid-cols-1 md:grid-cols-[170px_1fr_1fr_190px] md:gap-9 pl-[30px] md:pl-0">
+            <div className="grid grid-cols-1 md:grid-cols-[170px_1fr_1fr_190px] md:gap-9 pl-[30px] md:pl-0">
             {/* 01 · The shop */}
             <div className="relative pb-7 md:pb-0 md:pt-[104px]">
               <Dot className="bg-[#F7F6F2] -left-[30px] top-[2px] md:left-0 md:top-[122px]" />
@@ -128,7 +129,7 @@ const WhatWeRun = () => {
                     className="block w-full h-auto"
                   />
                 </div>
-                <div className="px-5 md:px-[26px] pb-4 md:pb-[18px] flex items-center justify-between gap-4">
+                <div className="px-5 md:px-[26px] pb-4 md:pb-[18px] flex flex-col items-start gap-2.5">
                   <a
                     href="https://royalinventorygambia.com"
                     target="_blank"
@@ -138,7 +139,7 @@ const WhatWeRun = () => {
                     Royal Inventory is live — see it in action
                     <ArrowUpRight className="w-3.5 h-3.5 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
                   </a>
-                  <span className="font-mono text-[9.5px] uppercase tracking-[0.16em] text-purple-300/60 text-right shrink-0">
+                  <span className="self-end font-mono text-[9.5px] uppercase tracking-[0.16em] text-purple-300/60">
                     Actual product interface
                   </span>
                 </div>
@@ -206,6 +207,7 @@ const WhatWeRun = () => {
                 Buys from stock that actually exists. The receipt arrives on
                 WhatsApp.
               </p>
+            </div>
             </div>
           </div>
 

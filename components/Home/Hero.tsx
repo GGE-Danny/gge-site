@@ -14,7 +14,7 @@ const Hero = () => {
           src="/Eagle.webp"
           alt="An eagle in flight — the GGE mark"
           fetchPriority="high"
-          className="absolute inset-0 w-full h-full object-cover object-[62%_18%] md:object-[70%_35%] opacity-80"
+          className="absolute inset-x-0 -top-[12%] h-[112%] md:top-0 md:h-full w-full object-cover object-[62%_18%] md:object-[70%_35%] opacity-80"
         />
       </picture>
       {/* Two gradients only: a legibility floor for the bottom-anchored text
@@ -24,7 +24,7 @@ const Hero = () => {
       <div className="absolute inset-0 bg-gradient-to-r from-slate-950/75 via-slate-950/30 to-transparent" />
 
       <div className="absolute inset-0 flex items-end">
-        <div className="max-w-6xl mx-auto px-6 pb-24 md:pb-28 w-full relative z-10">
+        <div className="max-w-6xl mx-auto px-6 pb-14 md:pb-28 w-full relative z-10">
           <p className="eyebrow text-slate-300 mb-6 flex items-center gap-3">
             <span className="w-8 h-[1px] bg-slate-400"></span>
             GGE Enterprise
@@ -34,7 +34,7 @@ const Hero = () => {
             <span className="text-slate-300">We stay to run it.</span>
           </h1>
           <p className="mt-8 text-slate-200/80 text-lg md:text-xl font-light leading-relaxed max-w-xl">
-            GGE builds and runs the operating systems businesses depend on. Our own products keep Gambian shops counting today; the same team builds for clients — payments, marketplaces, ERPs. Kingdom first: we seek the kingdom of God before anything we build.
+            GGE builds and runs the operating systems businesses depend on. Our own products keep Gambian shops counting today; the same team builds for clients<span className="hidden md:inline"> — payments, marketplaces, ERPs</span>. Kingdom first: we seek the kingdom of God before anything we build.
           </p>
           <div className="mt-10 flex items-center gap-8">
             <Link
