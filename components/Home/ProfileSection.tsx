@@ -13,21 +13,17 @@ const ProfileSection = () => {
                             Who we are
                         </h2>
                         <p className="text-xl md:text-2xl font-light leading-relaxed text-slate-800 max-w-xl">
-                            GGE is a service company at its core. We don&apos;t just deliver software; we take ownership of the systems that help your business thrive.
+                            GGE is a firm that builds and runs the systems businesses depend on. Two lines of work, one discipline: our own products, operated daily — and custom builds for clients, delivered with the same hands.
                         </p>
                         <div className="mt-8 space-y-6 text-lg leading-relaxed text-slate-600 max-w-xl">
                             <p>
-                                The current proof is the Total Retail Engine:
-                                Royal Inventory, which runs inventory and
-                                sales for retail businesses, and Gendal, the
-                                marketplace built on top of it for shoppers —
-                                starting in Gambian retail.
-                            </p>
-                            <p>
                                 The company was founded and is led by{' '}
                                 <span className="text-slate-900 font-medium">Daniel Ofili Achigbue</span>,
-                                whose background spans fintech and banking — from building mobile
-                                banking at Guaranty Trust Bank to delivering
+                                whose background spans fintech and banking —
+                                from working on core banking infrastructure,
+                                middlewares and public-facing applications at
+                                Guaranty Trust Bank (GTCO Gambia) — one of the
+                                biggest banks in Africa — to delivering
                                 fintech platforms like Kashma and Bonfo. That
                                 work includes core banking infrastructure now
                                 processing tens of millions of dollars in

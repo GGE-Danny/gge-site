@@ -49,7 +49,7 @@ const TeamSection = () => {
                         The people behind the <span className="font-medium">promise</span>.
                     </h2>
                     <p className="mt-6 text-slate-300/80 max-w-2xl text-lg md:text-xl font-light leading-relaxed">
-                        This is the leadership that answers for the promise — the people accountable for the systems our clients run on every day.
+                        Every system we run is somebody&apos;s name and phone number. These are the names.
                     </p>
                 </div>
 

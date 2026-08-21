@@ -16,6 +16,7 @@ const groups: {
   {
     heading: "Company",
     links: [
+      { label: "What we build", href: "/#what-we-build" },
       { label: "About", href: "/#about" },
       { label: "Contact", href: "/talk" },
     ],
@@ -37,7 +38,7 @@ const groups: {
 
 const Footer = () => {
   return (
-    <footer className="bg-gge-coal text-white">
+    <footer className="bg-gge-coal text-white border-t border-white/10">
       <div className="max-w-6xl mx-auto px-6 py-20 grid grid-cols-2 md:grid-cols-4 gap-x-8 gap-y-12">
         {groups.map((group) => (
           <div key={group.heading}>

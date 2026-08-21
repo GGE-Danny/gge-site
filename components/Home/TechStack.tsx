@@ -26,10 +26,10 @@ const TechStack = () => {
                 <div className="mb-14 md:mb-16">
                     <p className="eyebrow text-gge-emerald mb-5">How we work</p>
                     <h2 className="text-3xl md:text-5xl font-light tracking-tight text-slate-900 leading-[1.1]">
-                        <span className="font-medium">Reliability</span>, as a service
+                        We <span className="font-medium">answer</span> for what we build.
                     </h2>
                     <p className="mt-6 text-slate-600 max-w-2xl text-lg md:text-xl font-light leading-relaxed">
-                        We believe technology should recede into the background. Your focus belongs on your business, your customers, and your growth. We handle the engine.
+                        Four working principles, under every system on this page — the ones we run and the ones we build for you.
                     </p>
                 </div>
 
