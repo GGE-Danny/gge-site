@@ -23,15 +23,14 @@ const groups: {
   {
     heading: "Contact",
     links: [
-      { label: "danielachigbue55@gmail.com", href: "mailto:danielachigbue55@gmail.com", external: true },
-      { label: "+220 359 1788", href: "tel:+2203591788", external: true },
+      { label: "ceo@godgiveseverything.com", href: "mailto:ceo@godgiveseverything.com", external: true },
+      { label: "+220 2464432", href: "tel:+2202464432", external: true },
     ],
   },
   {
     heading: "Social",
     links: [
-      { label: "GitHub", href: "https://github.com/GGE-Danny", external: true },
-      { label: "LinkedIn", href: "https://www.linkedin.com/in/daniel-achigbue/", external: true },
+      { label: "LinkedIn", href: "https://www.linkedin.com/company/god-gives-everything-gge/", external: true },
     ],
   },
 ];

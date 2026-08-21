@@ -1,10 +1,10 @@
 'use client';
 import React from 'react';
-import { Github, Linkedin, Send } from 'lucide-react';
+import { Linkedin, Send } from 'lucide-react';
 
 const contactRows = [
-  { label: 'Email', value: 'danielachigbue55@gmail.com', href: 'mailto:danielachigbue55@gmail.com' },
-  { label: 'Phone', value: '+220 359 1788', href: 'tel:+2203591788' },
+  { label: 'Email', value: 'ceo@godgiveseverything.com', href: 'mailto:ceo@godgiveseverything.com' },
+  { label: 'Phone', value: '+220 2464432', href: 'tel:+2202464432' },
   { label: 'Location', value: 'The Gambia' },
 ];
 
@@ -22,7 +22,7 @@ const ContactPage = () => {
     // mailto keeps the form dependency-free; the sender's name and reply
     // address ride in the body
     const bodyContent = `Name: ${name}\nEmail: ${formData.email}\n\n${message}`;
-    const mailtoLink = `mailto:danielachigbue55@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(bodyContent)}`;
+    const mailtoLink = `mailto:ceo@godgiveseverything.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(bodyContent)}`;
     window.location.href = mailtoLink;
   };
 
@@ -85,26 +85,17 @@ const ContactPage = () => {
               <p className="font-mono text-xs uppercase tracking-widest text-gge-muted mb-5">
                 Social
               </p>
-              <div className="flex gap-3">
-                <a
-                  href="https://github.com/GGE-Danny"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  aria-label="GGE on GitHub"
-                  className="p-3 rounded-full border border-gge-line text-gge-muted hover:text-gge-ink hover:border-gge-ink transition-colors"
-                >
-                  <Github className="w-5 h-5" />
-                </a>
-                <a
-                  href="https://www.linkedin.com/in/daniel-achigbue/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  aria-label="Daniel Achigbue on LinkedIn"
-                  className="p-3 rounded-full border border-gge-line text-gge-muted hover:text-gge-ink hover:border-gge-ink transition-colors"
-                >
+              <a
+                href="https://www.linkedin.com/company/god-gives-everything-gge/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-3 text-gge-muted hover:text-gge-ink transition-colors"
+              >
+                <span className="p-3 rounded-full border border-gge-line">
                   <Linkedin className="w-5 h-5" />
-                </a>
-              </div>
+                </span>
+                <span className="text-sm">GGE on LinkedIn</span>
+              </a>
             </div>
           </div>
 
