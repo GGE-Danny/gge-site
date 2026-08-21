@@ -1,6 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
-import { ArrowRight } from "lucide-react";
+import { ArrowRight, ArrowUpRight } from "lucide-react";
 import { GendalLogo } from "@/components/Marketplace/GendalLogo";
 
 /**
@@ -22,6 +22,15 @@ const MarketplaceTeaser = () => {
               operations, Gendal runs the storefront — from stockroom to
               customer.
             </p>
+            <a
+              href="https://royalinventorygambia.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="group mt-5 inline-flex items-center gap-1.5 text-gge-emerald font-medium hover:text-[#095c43] transition-colors"
+            >
+              Royal Inventory is live — see it in action
+              <ArrowUpRight className="w-4 h-4 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+            </a>
           </div>
           <div className="md:col-span-4 md:justify-self-end">
             <Link

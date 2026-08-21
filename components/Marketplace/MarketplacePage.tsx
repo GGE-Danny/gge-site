@@ -2,7 +2,7 @@
 import React, { useRef } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { ArrowRight } from "lucide-react";
+import { ArrowRight, ArrowUpRight } from "lucide-react";
 import { useInView } from "framer-motion";
 import { GendalLogo } from "./GendalLogo";
 import { cn } from "@/lib/utils";
@@ -186,9 +186,17 @@ const MarketplacePage = () => {
                 ))}
               </div>
 
-              <p className="mt-8 font-mono text-xs tracking-wide text-purple-300/70">
-                Built for Gambian retail businesses · Not yet publicly
-                available
+              <a
+                href="https://royalinventorygambia.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group mt-8 inline-flex items-center gap-2 text-white font-medium border-b border-white/30 pb-1 hover:border-white transition-colors"
+              >
+                See it live at royalinventorygambia.com
+                <ArrowUpRight className="w-4 h-4 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+              </a>
+              <p className="mt-6 font-mono text-xs tracking-wide text-purple-300/70">
+                Built for Gambian retail businesses
               </p>
             </div>
 
@@ -346,7 +354,7 @@ const MarketplacePage = () => {
         <div className="max-w-3xl mx-auto px-6 py-24 md:py-32 text-center">
           <p className="eyebrow text-emerald-400/80 mb-7">Where things stand</p>
           <p className="text-2xl md:text-3xl font-light tracking-tight leading-snug">
-            Both products are running today inside GGE. Public launch is
+            Royal Inventory is live today; Gendal&apos;s public launch is
             still ahead — this page is the work, not the storefront.
           </p>
           <Link
